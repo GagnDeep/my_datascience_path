@@ -1,142 +1,166 @@
 # Numpy
 
-​	if started up using anaconda distribution
+if started up using anaconda distribution
 
-**conda install numpy**
+```
+conda install numpy
+```
 
-​	if not 
+else
 
-**pip install numpy**
+```
+pip install numpy
+```
 
-**numpy arrays:** 
 
-​	these can be martices or vectors
 
-​	a list can be casted into an array which will provide a linear algebra api
+## Numpy Arrays: 
 
-​	on top of that array
+- these can be martices or vectors
 
-​			import numpy as np
+- a list can be casted into an array which will provide a linear algebra api
 
-​			array = np.array(list)
+- on top of that array
 
-**API ===** 
+  ```
+  import numpy as np
+  
+  array = np.array(list)
+  ```
 
-**- np.arange(start_index, end_index, step_size)**
+---
 
-​		this is similar to range in python 
+## API 
 
-​		it generate an array of values ranging from start index and end index
+- np.arange(start_index, end_index, step_size)
 
-​		you can also provide a step size for evenly spaced values between that points
+  ​		this is similar to range in python 
 
-**- np.zeros(size)**
+  ​		it generate an array of values ranging from start index and end index
 
-​		- it provides a matrix of zeros according to the rank
+  ​		you can also provide a step size for evenly spaced values between that points
 
-​		 size = single value for 1d matrix 
+- np.zeros(size)
 
-​		 		 or a tuple of values for multiple dimension
+  ​		it provides a matrix of zeros according to the rank
 
-​		 np.zeros((2,3)) // a matrix of 2 rows and 3 columns
+  ​		size = single value for 1d matrix 
 
-**- np.ones(size)**
+  ​		 		 or a tuple of values for multiple dimension
 
-​		- similar to np.zeros() but provides a matrix of 1's
+  ​		np.zeros((2,3)) // a matrix of 2 rows and 3 columns
 
-**- np.linspace(start, end, num)**
+- np.ones(size)
 
-​		- similar to np.arange() with step argument 
+  ​		similar to np.zeros() but provides a matrix of 1's
 
-​		but arange provides array with that given step size
+- np.linspace(start, end, num)
 
-​		and linspace provide number of evenly space values
+  ​		- similar to np.arange() with step argument 
 
-​		between that interval
+  ​		but arange provides array with that given step size
 
-**- np.eye(num)**
+  ​		and linspace provide number of evenly space values
 
-​		- generates identity matrix of size <num>
+  ​		between that interval
 
-​		takes a single argument because identity matrix is a square matrix
+- np.eye(num)
 
-**- np.random**
+  ​		generates identity matrix of size <num>
 
-​		import individual functions using import syntax
+  ​		takes a single argument because identity matrix is a square matrix
 
-**from np.random import randint**
+- np.random
 
-**- np.random.rand(5, ...dimentions)**
+  ​		import individual functions using import syntax
 
-​			1d matrix of 5 random number from a uniform distribution between 0 and 1
+```
+from np.random import randint
+```
 
-**- np.random.randn(1,2, ...dimentions)**
 
-​			2d matrix of size (1,2) having random values
 
-​			it takes random numbers from a standard normal distribution centered
+- np.random.rand(5, ...dimentions)
 
-​			around 0 : gaussian distribution
+  ​			1d matrix of 5 random number from a uniform distribution between 0 and 1
 
-**- np.random.randint(low_inclusive, high_exclusive, size)**
+- np.random.randn(1,2, ...dimentions)
 
-​			will provide a matrix of random integer values between the range
+  ​			2d matrix of size (1,2) having random values
 
-​			if not supplied any size value: will get a random int value between the range
+  ​			it takes random numbers from a standard normal distribution centered
 
-​				np.random.randint(1, 100, 10) //1 can be selected 100 cannot
+  ​			around 0 : gaussian distribution
 
-**- arr.reshape(row, col)**
+- np.random.randint(low_inclusive, high_exclusive, size)
+
+  ​			will provide a matrix of random integer values between the range
+
+  ​			if not supplied any size value: will get a random int value between the range
+
+​				`np.random.randint(1, 100, 10) //1 can be selected 100 cannot`
+
+- arr.reshape(row, col)
 
 ​			this method can reshape an array to a new dimension
 
 ​			but the supplied array must have enough elements to fill up new shape
 
-​				np.arange(0,4).resape(2,2) // [[0,1],[2,3]]
+​				`np.arange(0,4).resape(2,2) // [[0,1],[2,3]]`
 
 ​				row*cols == number of actual elements
 
-**- np.random.seed(value)**
+- np.random.seed(value)
 
-​				it resets the seed to value passed such that same set of random numbers
+  ​		it resets the seed to value passed such that same set of random numbers
 
-​			will appear when random function will be called after reseting the seed
+  ​		will appear when random function will be called after reseting the seed
 
-​				np.random.seed(191)
+  ```
+  np.random.seed(191)
+  
+  np.random.randn(10) // array of 10 random numbers
+  
+  np.random.seed(191)
+  
+  np.random.randn(10) // same array of 10 random numbers
+  
+  np.random.randn(10) // different array of 10 random number
+  ```
 
-​				np.random.randn(10) // array of 10 random numbers
+  
 
-​				np.random.seed(191)
+---
 
-​				np.random.randn(10) // same array of 10 random numbers
+## Some methods available on numpy arrays
 
-​				np.random.randn(10) // different array of 10 random number
+- array.min() // returns min value of the matrix
 
-​	**- Some methods available on numpy arrays**
+- array.max() // returns max value of the matrix
 
-**- array.min()** // returns min value of the matrix
+- array.argmax() // returns the index of the max value of the matrix
 
-**- array.max()** // returns max value of the matrix
+- array.argmin() // returns the index of the min value of the matrix
 
-**- array.argmax()** // returns the index of the max value of the matrix
+- array.shape // will give you the shape of the matrix
 
-**- array.argmin()** // returns the index of the min value of the matrix
+- array.dtype // will give you the datatype of the matrix
 
-**- array.shape** // will give you the shape of the matrix
+---
 
-**- array.dtype** // will give you the datatype of the matrix
+## Indexing numpy arrays
 
-\------------------------------------------------------------------------------
+- working with numpy arrays is similiar to how we worked with lists
 
-**- Indexing numpy arrays**
+  ```
+  arr = np.arange(0,10)
+  
+  arr[1] // will give element on index 1
+  ```
 
-​	- working with numpy arrays is similiar to how we worked with lists
+  
 
-​		arr = np.arange(0,10)
-
-​		arr[1] // will give element on index 1
-
-**- slicing**
+**-slicing**
 
 ​		arr[1:5] // slice starting at index 1 and till index 5
 
