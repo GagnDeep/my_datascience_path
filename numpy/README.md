@@ -116,19 +116,19 @@ from np.random import randint
 
 - arr.reshape(row, col)
 
-​			this method can reshape an array to a new dimension
+  ​			this method can reshape an array to a new dimension
 
-​			but the supplied array must have enough elements to fill up new shape
+  ​			but the supplied array must have enough elements to fill up new shape
 
-​				`np.arange(0,4).resape(2,2) // [[0,1],[2,3]]`
+  ​				`np.arange(0,4).resape(2,2) // [[0,1],[2,3]]`
 
-​				row*cols == number of actual elements
+  ​				row*cols == number of actual elements
 
 - np.random.seed(value)
 
-  ​		it resets the seed to value passed such that same set of random numbers
+  ​			it resets the seed to value passed such that same set of random numbers
 
-  ​		will appear when random function will be called after reseting the seed
+  ​			will appear when random function will be called after reseting the seed
 
   ```
   np.random.seed(191)
@@ -176,27 +176,31 @@ from np.random import randint
 
 - slicing
 
-​		arr[1:5] // slice starting at index 1 and till index 5
+  ```
+  arr[1:5] // slice starting at index 1 and till index 5
+  
+  arr[:5] // from 0 to index 5
+  
+  arr[1:] // from index 1 till the last element
+  
+  arr[:] // all elements
+  ```
 
-​		arr[:5] // from 0 to index 5
-
-​		arr[1:] // from index 1 till the last element
-
-​		arr[:] // all elements
+  
 
 - negative indexing
 
-​		you can do negative indexing to get the last row
+  ​		you can do negative indexing to get the last row
 
-​		arr[-1] // will return the last element
+  ​		arr[-1] // will return the last element
 
 - broadcasting 
 
-​		numpy arrays differs from list in terms of broadcasting
+  ​		numpy arrays differs from list in terms of broadcasting
 
-​		numpy arrays have a feature know as broadcasting
+  ​		numpy arrays have a feature know as broadcasting
 
-​		a value can be broadcasted to selected or all elements by assigning 
+  ​		a value can be broadcasted to selected or all elements by assigning 
 
 ## Rules for broadcasting
 
