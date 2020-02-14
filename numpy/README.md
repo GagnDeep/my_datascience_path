@@ -12,7 +12,21 @@ else
 pip install numpy
 ```
 
+---
 
+### Guide to revise
+
+- For quick revision read the readme file
+- For practical overview, go over these notebooks.
+  - numpy arrays
+  - numpy indexing and selection
+  - numpy operations
+  - numpy intro edx
+- For little practical gain go over these notebooks
+  - numpy-exersices
+  - satellite image analysis
+
+---
 
 ## Numpy Arrays: 
 
@@ -160,7 +174,7 @@ from np.random import randint
 
   
 
-**-slicing**
+- slicing
 
 ​		arr[1:5] // slice starting at index 1 and till index 5
 
@@ -170,13 +184,13 @@ from np.random import randint
 
 ​		arr[:] // all elements
 
-**- negative indexing**
+- negative indexing
 
 ​		you can do negative indexing to get the last row
 
 ​		arr[-1] // will return the last element
 
-**- broadcasting** 
+- broadcasting 
 
 ​		numpy arrays differs from list in terms of broadcasting
 
@@ -184,40 +198,40 @@ from np.random import randint
 
 ​		a value can be broadcasted to selected or all elements by assigning 
 
-- Rules for broadcasting
+## Rules for broadcasting
 
-- - When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing dimensions, and works its way forward. Two dimensions are compatible when
+- When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing dimensions, and works its way forward. Two dimensions are compatible when
   - They are equal 
   - or one of them is 1
   - more details https://docs.scipy.org/doc/numpy-1.10.1/user/basics.broadcasting.html
 
-**numy_arr[0:7] = 100 //broadcast value 100 to elements 0:7**
+`numy_arr[0:7] = 100 //broadcast value 100 to elements 0:7`
 
-**numpy_arr[:] = 100 //broadcast value 100 to all elements of array**
+`numpy_arr[:] = 100 //broadcast value 100 to all elements of array`
 
-​		# this operation is mutable
+> this operation is mutable
+>
+> meaning that original array will be changed
+>
+> numpy doesnt create new arrays for each operation 
+>
+> instead it uses a refernce of old array
 
-​		# meaning that original array will be changed
-
-​		# numpy doesnt create new arrays for each operation 
-
-​		# instead it uses a refernce of old array
-
-​	- **array.copy()**
+- array.copy()
 
 ​		this function is used to create copy of arrays to make things immutable
 
-​			copy = numpy_arr.copy()
+​			`copy = numpy_arr.copy()`
 
-**- double bracket notation**
+- double bracket notation
 
-​		array[1][2]
+​		`array[1][2]`
 
-**- single bracket notation**
+- single bracket notation
 
-​		array[1,2]
+​		`array[1,2]`
 
-**- you can also use slice notation while indexing** 
+- you can also use slice notation while indexing 
 
 ​		arr[1:, 2:] //every row from index 1 onwards and col from index 2 onwards
 
@@ -225,105 +239,103 @@ from np.random import randint
 
 ​					 // every col from index 2 to index 4, not including index 4
 
-​	**- conditional selection**
+- conditional selection
 
-​		arr = np.arange(1,10)
+  `arr = np.arange(1,10)`
 
-​		- **bool_arr = arr > 3** // will return array with boolean values
+   `bool_arr = arr > 3 // will return array with boolean values`
 
-​						  // in which element will be true where the value will be greater than 3
+> in which element will be true where the value will be greater than 3
 
-​		- **arr[bool_arr]** // will give the arr with elements only where the value
+​		`arr[bool_arr] // will give the arr with elements only where the value`
 
-​					 // is true in the bool_arr
+> is true in the bool_arr
 
-​		##############################
+### the above two steps can be condensed into a single operation
 
-​		the above two steps can be condensed into a single operation
+`arr[arr > 3]`
 
-**arr[arr > 3]**
+---
 
-\-------------------------------------------------------------
+## Array operations with numpy
 
-Array operations with numpy
+- you can use all the basic operators with numpy arrays too
 
-​	- you can use all the basic operators with numpy arrays too
+- such as multiplying with an array with array or scalar with a scalar
 
-​	- such as multiplying with an array with array or scalar with a scalar
+> using basic operators such as *, /, + , - ...
 
-​	using basic operators such as *, /, + , - ...
+```
+[1,2] \* [2,3] = [2,6]
 
-**[1,2] \* [2,3] = [2,6]**
+[2, 3] \* 100 = [200, 300]
+```
 
-**[2, 3] \* 100 = [200, 300]**
+> operations performed doesn't mutate original array
 
-​	operations performed doesn't mutate original array
+**universal array operations**
 
-universal array operations
+> numpy comes with many universal array operations such as
 
-​	numpy comes with many universal array operations such as
+- **np.sqrt(arr)** // square root of each element of the array
 
-​	- **np.sqrt(arr)** // square root of each element of the array
+- **np.exp(arr)** // for exponential of the number
 
-​	- **np.exp(arr)** // for exponential of the number
+- **np.max(arr)** // returns the max valued element, similar to arr.max
 
-​	- **np.max(arr)** // returns the max valued element, similar to arr.max
+- **np.sin(arr)** // sin of each number
 
-​	- **np.sin(arr)** // sin of each number
+- **np.log(arr)** // log of each function
 
-​	- **np.log(arr)** // log of each function
+>  if divide by zero of something like accur numpy will give you warning
+>
+> instead of
+>
+> zivide by zero in python gives you an error
 
-​	if divide by zero of something like accur numpy will give you warning
+​	
 
-​	instead of 
+---
 
-​	zivide by zero in python gives you an error
-
-------
-
-### From EDX -> 
+## From EDX
 
 ### Write numpy arrays to disk
 
-- np.save('filename', array)
-
-- np.load('filename.npy)
-
+- `np.save('filename', array)`
+- `np.load('filename.npy)`
 - save as text file
+- np.savetxt('filename.txt', x=Array, delimiter=',')
 
-- - np.savetxt('filename.txt', x=Array, delimiter=',')
-
-More operations
+**More operations**
 
 - np.dot(x,y) or x.dot(y) 
 
-- - \#dot product
+  - #dot product
 
 - array.T 
 
-- - Transpose
+  - Transpose
 
 - Indexing using where
 
-- - np.where( mat > 0.5, 1000, -1) 
+  - np.where( mat > 0.5, 1000, -1) 
   - will provide an array with 1000 where conditon is true and -1 where false
 
 - np.random.permutation(array) 
 
-- - return new ordering for the array
+  - return new ordering for the array
 
 - np.random.uniform(size=4)
 
-- - uniform distribution
+  - uniform distribution
 
 - np.random.normal(size=4)
 
 - merging datasets
 
-- - np.vstack((K,M)) 
-
-  - - np.concatenate([K, M.T], axis = 1) 
-
+  - np.vstack((K,M)) 
+  - np.concatenate([K, M.T], axis = 1) 
+    
   - np.hstack((K, M)) 
 
-  - - np.concatenate([K, M], axis = 0)
+    - np.concatenate([K, M], axis = 0)
